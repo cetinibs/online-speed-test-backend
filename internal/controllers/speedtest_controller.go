@@ -19,8 +19,24 @@ func NewSpeedTestController(speedTestService *services.SpeedTestService) *SpeedT
 	}
 }
 
+// enableCORS adds CORS headers to allow cross-origin requests
+func enableCORS(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+}
+
 // RunTest handles the request to run a speed test
 func (c *SpeedTestController) RunTest(w http.ResponseWriter, r *http.Request) {
+	// Enable CORS for all requests
+	enableCORS(w)
+	
+	// Handle preflight OPTIONS request
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// In a real implementation, we would extract the user ID from the authenticated session
 	userID := "anonymous" // Default for unauthenticated users
 
@@ -53,6 +69,15 @@ func (c *SpeedTestController) RunTest(w http.ResponseWriter, r *http.Request) {
 
 // GetHistory handles the request to get a user's test history
 func (c *SpeedTestController) GetHistory(w http.ResponseWriter, r *http.Request) {
+	// Enable CORS for all requests
+	enableCORS(w)
+	
+	// Handle preflight OPTIONS request
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// In a real implementation, we would extract the user ID from the authenticated session
 	userID := r.URL.Query().Get("user_id")
 	if userID == "" {
@@ -74,6 +99,15 @@ func (c *SpeedTestController) GetHistory(w http.ResponseWriter, r *http.Request)
 
 // DeleteResult handles the request to delete a test result
 func (c *SpeedTestController) DeleteResult(w http.ResponseWriter, r *http.Request) {
+	// Enable CORS for all requests
+	enableCORS(w)
+	
+	// Handle preflight OPTIONS request
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// In a real implementation, we would extract the user ID from the authenticated session
 	userID := "authenticated_user_id"
 
