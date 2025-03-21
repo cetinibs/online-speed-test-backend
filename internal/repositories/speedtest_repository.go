@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"context"
-	"github.com/hizim-ne/backend/internal/models"
+	"github.com/cetinibs/online-speed-test-backend/internal/models"
 )
 
 // SpeedTestRepository defines the interface for speed test data operations

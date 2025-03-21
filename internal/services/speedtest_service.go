@@ -12,8 +12,8 @@ import (
 	"sort"
 	"bytes"
 
-	"github.com/hizim-ne/backend/internal/models"
-	"github.com/hizim-ne/backend/internal/repositories"
+	"github.com/cetinibs/online-speed-test-backend/internal/models"
+	"github.com/cetinibs/online-speed-test-backend/internal/repositories"
 )
 
 // SpeedTestService handles the business logic for speed testing

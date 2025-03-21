@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/hizim-ne/backend/internal/services"
+	"github.com/cetinibs/online-speed-test-backend/internal/services"
 )
 
 // SpeedTestController handles HTTP requests for speed testing

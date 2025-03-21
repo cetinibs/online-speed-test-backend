@@ -1,3 +1,3 @@
-module github.com/hizim-ne/backend
+module github.com/cetinibs/online-speed-test-backend
 
 go 1.21
